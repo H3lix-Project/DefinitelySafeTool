@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DefinitelySafeTool</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0d0d0d;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 6rem 2rem 3rem;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      color: #ccc;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .cloud-bg {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(176, 96, 255, 0.3), transparent 70%);
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    button {
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #b060ff, #7e30d7);
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #a050f5, #6826bb);
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #b060ff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #555;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+  </style>
+
+  <script src="utils.js"></script>
+  <script src="int64.js"></script>
+  <script src="stages.js"></script>
+  <script src="offsets.js"></script>
+  <script src="pwn.js"></script>
+  <script>
+    function log(msg) {};
+    function rejb() {
+      document.getElementById("jbButton").textContent = "re-jailbreaking";
+      setTimeout(() => {
+        pwn();
+      }, 100);
+    }
+  </script>
+</head>
+
+<body>
+
+  <div class="hero">
+    <div class="cloud-bg"></div>
+    <div class="hero-content">
+      <h1>DefinitelySafeTool</h1>
+      <p>Rejailbreak utility for iOS 12.0–12.5.x, A7–A10 devices with Chimera jailbreak</p>
+      <button id="jbButton" onclick="rejb();">Re-jailbreak</button>
+    </div>
+  </div>
+
+  <div class="content">
+    <p>This tool may take up to 20–30 seconds to build JOP chain and execute the rejailbreak process.</p>
+
+    <h3>Credits</h3>
+    <ul>
+      <li>endrph (design website)</li>
+      <li>alfiecg24 (stable kernel exploit)</li>
+      <li>felix-pb (kernel exploit)</li>
+      <li>Samuel Groß (CVE-2020-9802, Webkit Exploit)</li>
+      <li>CoolStar and all Chimera jailbreak developers</li>
+      <li>JakeBlair420 (JOP chaining)</li>
+      <li>qwertyoruiop (Mach-O loader with +jitMemCpy)</li>
+      <li>And anyone we forgot — thank you!</li>
+    </ul>
+  </div>
+</body>
+</html>
